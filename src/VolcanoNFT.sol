@@ -31,6 +31,10 @@ contract VolcanoNFT is ERC721URIStorage, Ownable {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
+        
+        if (newItemId > TOTAL_SUPPLY) {
+            revert MaxSupply();
+        }       
         _mint(recipient, newItemId);
         _setTokenURI(newItemId, tokenURI);
 
