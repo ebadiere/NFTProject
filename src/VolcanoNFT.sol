@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.10;
 
-import {console} from "forge-std/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -26,7 +25,6 @@ contract VolcanoNFT is ERC721URIStorage, Ownable {
         public payable onlyOwner
         returns (uint256)
     {
-        console.log("%s: %d", "msg.value", msg.value);
         if (msg.value != MINT_PRICE) {
             revert MintPriceNotPaid();
         }
